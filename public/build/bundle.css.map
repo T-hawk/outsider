@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../Form.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n    import { createEventDispatcher } from 'svelte';\n    const dispatch = createEventDispatcher();\n\n    export var players = 4\n    const next = () => dispatch('next')\n</script>\n\n<main>\n    <div class=\"card\">\n        <h1>Select the number of players</h1>\n        <h1 class=\"white\">{players}</h1>\n        <input type=\"range\" bind:value={players} class=\"slider\" min=4 max=8>\n        <br>\n        <button on:click={next} class=\"btn\">NEXT</button>\n    </div>\n</main>\n\n<style>\n    .btn {\n        border: none;\n        background: black;\n        color: white;\n\n        font-weight: bold;\n\n        padding: 10px;\n    }\n\n    .slider {\n        -webkit-appearance: none;\n        width: 100%;\n        height: 25px;\n        background: black;\n        outline: none;\n    }\n\n    .slider::-webkit-slider-thumb {\n        -webkit-appearance: none;\n        appearance: none;\n        width: 25px;\n        height: 25px;\n        background: white;\n        cursor: pointer;\n    }\n\n    .slider::-moz-range-thumb {\n        width: 25px;\n        height: 25px;\n        background: white;\n        cursor: pointer;\n    }\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAmBI,IAAI,eAAC,CAAC,AACF,MAAM,CAAE,IAAI,CACZ,UAAU,CAAE,KAAK,CACjB,KAAK,CAAE,KAAK,CAEZ,WAAW,CAAE,IAAI,CAEjB,OAAO,CAAE,IAAI,AACjB,CAAC,AAED,OAAO,eAAC,CAAC,AACL,kBAAkB,CAAE,IAAI,CACxB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,UAAU,CAAE,KAAK,CACjB,OAAO,CAAE,IAAI,AACjB,CAAC,AAED,sBAAO,sBAAsB,AAAC,CAAC,AAC3B,kBAAkB,CAAE,IAAI,CACxB,UAAU,CAAE,IAAI,CAChB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,UAAU,CAAE,KAAK,CACjB,MAAM,CAAE,OAAO,AACnB,CAAC,AAED,sBAAO,kBAAkB,AAAC,CAAC,AACvB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,UAAU,CAAE,KAAK,CACjB,MAAM,CAAE,OAAO,AACnB,CAAC"
+}
