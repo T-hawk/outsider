@@ -1,10 +1,12 @@
 <script>
 	import Form from "./Form.svelte"
 	import Roles from "./Roles.svelte"
+	import Timer from "./Timer.svelte"
 
 	let states = {
 		FORM: 2,
-		ROLE_DISTRIB: 1
+		ROLE_DISTRIB: 1,
+		TIMER: 0
 	}
 	let possibleRoles = {
 		MASTER: "master",
@@ -31,6 +33,10 @@
 		shuffle(roles)
 	}
 
+	function startTimer() {
+		state = states.TIMER
+	}
+
 	function reset() {
 		state = states.FORM
 		roles = []
@@ -52,6 +58,8 @@
 	{#if state == states.FORM}
 		<Form on:next={generateGame} bind:players={players} />
 	{:else if state == states.ROLE_DISTRIB}
-		<Roles roles={roles} word={word} on:complete={reset} />
+		<Roles roles={roles} word={word} on:complete={startTimer} />
+	{:else if state == states.TIMER}
+		<Timer on:complete={reset} />
 	{/if}
 </main>
