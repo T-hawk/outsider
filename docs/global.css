@@ -29,7 +29,7 @@ body {
     justify-content: center;
 
     color: black;
-    background: red;
+    background: #ad0202;
 
     border-style: solid;
     border-width: 5px;
@@ -41,4 +41,20 @@ body {
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
+}
+
+.btn {
+    border: 3px solid black;
+    background: black;
+    color: white;
+
+    font-weight: bold;
+
+    padding: 8px;
+}
+
+.gray {
+    border: 3px solid black;
+    background: white;
+    color: black;
 }

@@ -2,14 +2,17 @@
 	import Form from "./Form.svelte"
 	import Roles from "./Roles.svelte"
 	import Timer from "./Timer.svelte"
+	import SelectWord from "./SelectWord.svelte"
+	import SelectMaster from "./SelectMaster.svelte"
 
 	let states = {
+		SELECT_MASTER: 4,
+		SELECT_WORD: 3,
 		FORM: 2,
 		ROLE_DISTRIB: 1,
 		TIMER: 0
 	}
 	let possibleRoles = {
-		MASTER: "master",
 		INSIDER: "insider",
 		COMMONS: "commons"
 	}
@@ -18,19 +21,28 @@
 	var roles = []
 	var players = 4
 	
+	var words;
 	var word;
 
-	function generateGame() {
-		fetch("words.json", {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}})
-			.then(response => response.json())
-			.then(json => {
-				word = json[Math.floor(Math.random()*json.length)];
-			})
+	fetch("words.json", {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}})
+		.then(response => response.json())
+		.then(json => {
+			words = json;
+		})
 
-		state = states.ROLE_DISTRIB
-		roles = [possibleRoles.MASTER, possibleRoles.INSIDER]
+	function generateGame() {
+		state = states.SELECT_MASTER;
+		roles = [possibleRoles.INSIDER]
 		for (let i = 2; i < players; i++) { roles.push(possibleRoles.COMMONS) }
 		shuffle(roles)
+	}
+
+	function selectWord() {
+		state = states.SELECT_WORD;
+	}
+
+	function showRoles() {
+		state = states.ROLE_DISTRIB;
 	}
 
 	function startTimer() {
@@ -57,6 +69,10 @@
 <main>
 	{#if state == states.FORM}
 		<Form on:next={generateGame} bind:players={players} />
+	{:else if state == states.SELECT_MASTER}
+		<SelectMaster on:next={selectWord} />
+	{:else if state == states.SELECT_WORD}
+		<SelectWord words={words} bind:word={word} on:next={showRoles} />
 	{:else if state == states.ROLE_DISTRIB}
 		<Roles roles={roles} word={word} on:complete={startTimer} />
 	{:else if state == states.TIMER}

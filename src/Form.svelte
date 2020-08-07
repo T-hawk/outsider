@@ -8,25 +8,15 @@
 
 <main>
     <div class="card">
-        <h1>Select the number of players</h1>
-        <h1 class="white">{players}</h1>
-        <input type="range" bind:value={players} class="slider" min=4 max=8>
+        <h2>Select the number of players</h2>
+        <h2 class="white">{players}</h2>
+        <input type="range" bind:value={players} class="slider" min=4 max=10>
         <br>
         <button on:click={next} class="btn">NEXT</button>
     </div>
 </main>
 
 <style>
-    .btn {
-        border: none;
-        background: black;
-        color: white;
-
-        font-weight: bold;
-
-        padding: 10px;
-    }
-
     .slider {
         -webkit-appearance: none;
         width: 100%;
