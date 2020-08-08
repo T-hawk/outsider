@@ -1,60 +1,60 @@
 html, body, main {
-    margin: 0;
+  margin: 0;
 
-    background-color: black;
-    align-items: center;
-    justify-content: center;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
 
-    display: flex;
+  display: flex;
 
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    color: black;
-    background: #ad0202;
+  color: black;
+  background: #ad0202;
 
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
 
-    padding: 0.5rem;
-    text-align: center;
+  padding: 0.5rem;
+  text-align: center;
 
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .btn {
-    border: 3px solid black;
-    background: black;
-    color: white;
+  border: 3px solid black;
+  background: black;
+  color: white;
 
-    font-weight: bold;
+  font-weight: bold;
 
-    padding: 8px;
+  padding: 8px;
 }
 
 .gray {
-    border: 3px solid black;
-    background: white;
-    color: black;
+  border: 3px solid black;
+  background: white;
+  color: black;
 }
